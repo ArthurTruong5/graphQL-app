@@ -1,13 +1,13 @@
 const express = require("express");
-// to make it work with express
 const expressGraphQL = require("express-graphql");
+const schema = require("./schema/schema");
+var app = express();
 
-const app = express();
-
-// middleware
 app.use(
   "/graphql",
   expressGraphQL({
+    // ES6 key and value have same variable name
+    schema,
     graphiql: true
   })
 );
